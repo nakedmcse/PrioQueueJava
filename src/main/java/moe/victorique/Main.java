@@ -1,21 +1,20 @@
-package org.example;
+package moe.victorique;
 
 import com.google.common.base.Stopwatch;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.stream.IntStream;
 
 public class Main {
 
-  private static final int range = 1000000;
+  private static final int range = 10000000;
 
   public static void main(String[] args) {
     var testOut = new StringBuilder();
-    var simplePrio = new PriorityQueue<Pair<Integer, Integer>>(Comparator.comparingInt(p1 -> -p1.getRight()));
+    var simplePrio = new PriorityQueue<Pair<Integer, Integer>>(range, (x, y) -> Integer.compare(y.getRight(), x.getRight()));
     System.out.println("Priority Enqueued 1:1,2:1,3:1,4:5,5:9");
     simplePrio.add(Pair.of(1, 1));
     simplePrio.add(Pair.of(2, 1));
